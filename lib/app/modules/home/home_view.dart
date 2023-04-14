@@ -15,6 +15,22 @@ class HomeView extends GetView<HomeController> {
       body: HStack([
         Obx(
           () => SideNavigationBar(
+            theme: SideNavigationBarTheme(
+              backgroundColor: Colors.grey.shade50,
+              itemTheme: SideNavigationBarItemTheme(
+                selectedItemColor: Colors.blue.shade500,
+                unselectedItemColor: Colors.grey.shade700,
+              ),
+              togglerTheme: SideNavigationBarTogglerTheme(
+                expandIconColor: Colors.blue.shade500,
+                shrinkIconColor: Colors.blue.shade500,
+              ),
+              dividerTheme: SideNavigationBarDividerTheme(
+                showHeaderDivider: true,
+                showMainDivider: true,
+                showFooterDivider: true,
+              ),
+            ),
             header: SideNavigationBarHeader(
               image: Image.asset(
                 'assets/icons/icon.png',
@@ -30,6 +46,16 @@ class HomeView extends GetView<HomeController> {
               ),
               subtitle: Text('Takmir'),
             ),
+            footer: SideNavigationBarFooter(
+              label: Text(
+                'version: ${controller.version.value}',
+                style: GoogleFonts.openSans(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
             selectedIndex: controller.selectedIndex.value,
             items: const [
               SideNavigationBarItem(
@@ -37,8 +63,12 @@ class HomeView extends GetView<HomeController> {
                 label: 'Dashboard',
               ),
               SideNavigationBarItem(
+                icon: Icons.settings,
+                label: 'Settings',
+              ),
+              SideNavigationBarItem(
                 icon: Icons.info_outline,
-                label: 'Info',
+                label: 'Apps Info',
               ),
             ],
             onTap: (index) => controller.selectedIndex.value = index,

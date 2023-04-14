@@ -1,16 +1,37 @@
 # zakat_apps
 
-A new Flutter project.
+Zakat Apps Desktop source tree
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Project ini dibangun menggunakan:
+- flutter versi `v3.7.11`
+- `GetX` ekosistem.
+- `VelocityX` A minimalist Flutter framework for rapidly building custom designs.
+- `Dio` REST API client
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Documentation
+- [Flutter](https://docs.flutter.dev/)
+- [GetX](https://chornthorn.github.io/getx-docs/index)
+- [VelocityX](https://velocityx.dev/docs/install)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Development Guidelines :
+- Design Pattern **MVC**
+- Karna menggunakan `linter`, sebelum commit, pastikan check `Dart Analysis` count = 0, keep clean code sesuai anjuran flutter.
+
+---
+
+### Sebelum mulai, mari Set-Up tools / install dibawah:
+
+- **get_cli** : terminal : `pub global activate get_cli` atau `dart pub global activate get_cli`
+- **plug-in : getXSnippet** vscode / intellij
+- **dart line** : set line to 200, biar reformatting code nya tetap rapi. ![image](https://user-images.githubusercontent.com/36602270/142856350-d62bfe1b-7af2-43de-8455-ace88a92078e.png)
+
+---
+
+### PENTING!!
+- untuk membuat fitur baru, terminal : `get create page:test_page`
+
+---

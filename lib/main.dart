@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:zakat_apps/app/resources/app_theme.dart';
-import 'package:zakat_apps/app/resources/color.dart';
 import 'package:zakat_apps/app/routes/app_pages.dart';
+import 'package:zakat_apps/app/theme/app_theme.dart';
+import 'package:zakat_apps/app/theme/color.dart';
 
 Future<void> main() async {
   await runZonedGuarded(
