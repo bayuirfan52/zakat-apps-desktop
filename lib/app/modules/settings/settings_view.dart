@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:zakat_apps/app/theme/color.dart';
+import 'package:zakat_apps/app/utils/widgets/ex_button_default.dart';
+import 'package:zakat_apps/app/utils/widgets/ex_button_outline.dart';
 import 'package:zakat_apps/app/utils/widgets/ex_textfield_multiline.dart';
 import 'package:zakat_apps/app/utils/widgets/ex_textfield_normal.dart';
 
@@ -125,6 +128,7 @@ class SettingsView extends GetView<SettingsController> {
               subtitle: ExTextFieldNormal(
                 tfController: controller.priceController,
                 textInputType: TextInputType.number,
+                clear: false,
               ).pSymmetric(v: 12),
               contentPadding: EdgeInsets.symmetric(vertical: 8),
             ).expand(),
@@ -136,11 +140,17 @@ class SettingsView extends GetView<SettingsController> {
         SizedBox(height: 16),
       ]).p24().scrollVertical(physics: AlwaysScrollableScrollPhysics()),
       bottomNavigationBar: VStack([
-        MaterialButton(
+        ExButtonDefault(
+          onPressed: () => controller.saveData(),
+          label: 'Simpan',
+        ).wFull(context),
+        SizedBox(height: 16),
+        ExButtonOutline(
+          borderColor: colorPrimary,
           onPressed: () {},
-          child: Text('Simpan').p16(),
-        ).wFull(context).marginSymmetric(vertical: 16, horizontal: 16)
-      ]),
+          label: 'Set to Default',
+        ).wFull(context),
+      ]).p24(),
     );
   }
 }

@@ -14,6 +14,7 @@ Future<void> main() async {
       SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: colorPrimary));
       WidgetsFlutterBinding.ensureInitialized();
       await GetStorage.init();
+      Get.lazyPut<GetStorage>(() => GetStorage());
 
       runApp(ZakatApps());
     },

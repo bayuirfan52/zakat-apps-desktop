@@ -32,11 +32,7 @@ class HomeView extends GetView<HomeController> {
               ),
             ),
             header: SideNavigationBarHeader(
-              image: Image.asset(
-                'assets/icons/icon.png',
-                height: 36,
-                width: 48,
-              ).paddingAll(8),
+              image: Container(),
               title: Text(
                 'Zakat Apps',
                 style: GoogleFonts.openSans(
@@ -44,7 +40,13 @@ class HomeView extends GetView<HomeController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              subtitle: Text('Takmir'),
+              subtitle: Text(
+                'Takmir',
+                style: GoogleFonts.openSans(
+                  fontSize: 12,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
             ),
             footer: SideNavigationBarFooter(
               label: Text(
