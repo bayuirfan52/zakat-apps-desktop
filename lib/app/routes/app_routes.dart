@@ -13,6 +13,7 @@ abstract class Routes {
   static const PENERIMA = _Paths.PENERIMA;
   static const ZAKAT_MAAL = _Paths.ZAKAT + _Paths.ZAKAT_MAAL;
   static const RECEIPT = _Paths.ZAKAT + _Paths.RECEIPT_FITR;
+  static const RECEIPT_MAAL = _Paths.RECEIPT + _Paths.RECEIPT_MAAL;
 }
 
 abstract class _Paths {
@@ -27,4 +28,6 @@ abstract class _Paths {
   static const PENERIMA = '/penerima';
   static const ZAKAT_MAAL = '/zakat-maal';
   static const RECEIPT_FITR = '/receipt-fitr';
+  static const RECEIPT_MAAL = '/receipt-maal';
+  static const RECEIPT = '/receipt';
 }

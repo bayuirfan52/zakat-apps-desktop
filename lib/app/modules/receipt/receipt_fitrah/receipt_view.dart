@@ -161,7 +161,7 @@ class ReceiptView extends GetView<ReceiptController> {
           ]),
           SizedBox(height: 24),
           ExButtonDefault(
-            onPressed: () {},
+            onPressed: () => controller.print(),
             label: 'Cetak',
           ).wFull(context)
         ]),

@@ -70,11 +70,11 @@ class HomeView extends GetView<HomeController> {
               ),
               SideNavigationBarItem(
                 icon: Icons.people,
-                label: 'Penerima',
+                label: 'Data Muzaki',
               ),
               SideNavigationBarItem(
                 icon: Icons.share_location_rounded,
-                label: 'Penyaluran',
+                label: 'Penyaluran Zakat',
               ),
               SideNavigationBarItem(
                 icon: Icons.settings,

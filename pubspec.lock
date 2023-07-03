@@ -57,14 +57,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0"
-  barcode:
-    dependency: transitive
-    description:
-      name: barcode
-      sha256: "52570564684bbb0240a9f1fdb6bad12adc5e0540103c1c96d6dd550bd928b1c9"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.2.3"
   boolean_selector:
     dependency: transitive
     description:
@@ -169,14 +161,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.1"
-  charset_converter:
-    dependency: transitive
-    description:
-      name: charset_converter
-      sha256: e4827b2d623ab75c2b6767d69e03485ea5bc894db6f6bdcb2ffeda58446bbe26
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.1"
   checked_yaml:
     dependency: transitive
     description:
@@ -241,6 +225,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.0"
+  console:
+    dependency: transitive
+    description:
+      name: console
+      sha256: e04e7824384c5b39389acdd6dc7d33f3efe6b232f6f16d7626f194f6a01ad69a
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.1.0"
   convert:
     dependency: transitive
     description:
@@ -297,16 +289,16 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.1.1"
-  esc_pos_printer:
+  esc_pos_bluetooth:
     dependency: "direct main"
     description:
-      name: esc_pos_printer
-      sha256: "312b05f909f3f7dd1e6a3332cf384dcee2c3a635138823654cd9c0133d8b5c45"
+      name: esc_pos_bluetooth
+      sha256: "46455b48afeeb5eabdfdde59697e0328247df6537f6d5e8d8f6664975e886e4b"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.0"
+    version: "0.4.1"
   esc_pos_utils:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: esc_pos_utils
       sha256: "8ec0013d7a7f1e790ced6b09b95ce3bf2c6f9468a3e2bc49ece000761d86c6f8"
@@ -358,6 +350,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_bluetooth_basic:
+    dependency: transitive
+    description:
+      name: flutter_bluetooth_basic
+      sha256: e81a2c5e9340660b4832831b33d9f3c1f1b098c8f924bc1dafef9702c5985921
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.7"
   flutter_blurhash:
     dependency: transitive
     description:
@@ -406,14 +406,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
-  flutter_loggy:
-    dependency: "direct main"
-    description:
-      name: flutter_loggy
-      sha256: "21b515977deefe37817cce35b0e420c7cde930b9dcfdcbeb05730ed24ee74e3a"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.2"
   flutter_masked_text2:
     dependency: "direct main"
     description:
@@ -480,6 +472,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.6.5"
+  get_it:
+    dependency: transitive
+    description:
+      name: get_it
+      sha256: "529de303c739fca98cd7ece5fca500d8ff89649f1bb4b4e94fb20954abcd7468"
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.6.0"
   get_storage:
     dependency: "direct main"
     description:
@@ -680,14 +680,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
-  loggy:
-    dependency: transitive
-    description:
-      name: loggy
-      sha256: "981e03162bbd3a5a843026f75f73d26e4a0d8aa035ae060456ca7b30dfd1e339"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.3"
   matcher:
     dependency: transitive
     description:
@@ -720,6 +712,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
+  msix:
+    dependency: "direct dev"
+    description:
+      name: msix
+      sha256: e3de4d9f52543ad6e4b0f534991e1303cbd379d24be28dd241ac60bd9439a201
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.7.0"
   nested:
     dependency: transitive
     description:
@@ -793,13 +793,13 @@ packages:
     source: hosted
     version: "0.2.1"
   path_provider:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path_provider
-      sha256: c7edf82217d4b2952b2129a61d3ad60f1075b9299e629e149a8d2e39c2e6aad4
+      sha256: "3087813781ab814e4157b172f1a11c46be20179fcc9bea043e0fba36bc0acaa2"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.14"
+    version: "2.0.15"
   path_provider_android:
     dependency: transitive
     description:
@@ -840,14 +840,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.5"
-  pdf:
-    dependency: transitive
-    description:
-      name: pdf
-      sha256: "10659b915e65832b106f6d1d213e09b789cc1f24bf282ee911e49db35b96be4d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.8.4"
   pedantic:
     dependency: transitive
     description:
@@ -936,14 +928,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.5.1"
-  printing:
-    dependency: "direct main"
-    description:
-      name: printing
-      sha256: "4df9e22bd4cb2ecea67183e5b328711b10276127b8878d9d5cb60ccd4c24a77c"
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.9.3"
   process:
     dependency: transitive
     description:
@@ -984,14 +968,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
-  qr:
-    dependency: transitive
-    description:
-      name: qr
-      sha256: "64957a3930367bf97cc211a5af99551d630f2f4625e38af10edd6b19131b64b3"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.0.1"
   quiver:
     dependency: transitive
     description:
@@ -1012,10 +988,10 @@ packages:
     dependency: transitive
     description:
       name: rxdart
-      sha256: "0c7c0cedd93788d996e33041ffecda924cc54389199cde4e6a34b440f50044cb"
+      sha256: "2ef8b4e91cb3b55d155e0e34eeae0ac7107974e451495c955ac04ddee8cc21fd"
       url: "https://pub.dev"
     source: hosted
-    version: "0.27.7"
+    version: "0.26.0"
   shelf:
     dependency: transitive
     description:

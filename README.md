@@ -31,7 +31,7 @@ This project was built using:
 
 ---
 
-### PENTING!!
+### IMPORTANT!!
 - to make a new page, run in terminal : `get create page:test_page`
 - run `flutter packages pub run build_runner build` first!
 

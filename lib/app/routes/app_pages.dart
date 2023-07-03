@@ -12,6 +12,8 @@ import '../modules/penyaluran/penyaluran_binding.dart';
 import '../modules/penyaluran/penyaluran_view.dart';
 import '../modules/receipt/receipt_fitrah/receipt_binding.dart';
 import '../modules/receipt/receipt_fitrah/receipt_view.dart';
+import '../modules/receipt/receipt_maal/receipt_maal_binding.dart';
+import '../modules/receipt/receipt_maal/receipt_maal_view.dart';
 import '../modules/settings/settings_binding.dart';
 import '../modules/settings/settings_view.dart';
 import '../modules/zakat/zakat_binding.dart';
@@ -82,6 +84,11 @@ class AppPages {
       name: _Paths.PENERIMA,
       page: () => const PenerimaView(),
       binding: PenerimaBinding(),
+    ),
+    GetPage(
+      name: _Paths.RECEIPT_MAAL,
+      page: () => const ReceiptMaalView(),
+      binding: ReceiptMaalBinding(),
     ),
   ];
 }
