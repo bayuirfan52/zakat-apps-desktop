@@ -13,7 +13,7 @@ import 'ex_textfield.dart';
 
 class ExTextFieldNormal extends StatelessWidget {
   const ExTextFieldNormal({
-    Key? key,
+    super.key,
     this.borderColor = const Color(0xFFe4e8eb),
     this.hint,
     this.tfController,
@@ -39,7 +39,7 @@ class ExTextFieldNormal extends StatelessWidget {
     this.maxLength,
     this.maxLine = 1,
     this.counterText,
-  }) : super(key: key);
+  });
 
   final Color? borderColor;
   final Color? borderColorFocus;

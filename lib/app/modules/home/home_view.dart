@@ -61,8 +61,20 @@ class HomeView extends GetView<HomeController> {
             selectedIndex: controller.selectedIndex.value,
             items: const [
               SideNavigationBarItem(
-                icon: Icons.dashboard_rounded,
+                icon: Icons.home,
                 label: 'Dashboard',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.recent_actors_rounded,
+                label: 'Zakat',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.people,
+                label: 'Penerima',
+              ),
+              SideNavigationBarItem(
+                icon: Icons.share_location_rounded,
+                label: 'Penyaluran',
               ),
               SideNavigationBarItem(
                 icon: Icons.settings,

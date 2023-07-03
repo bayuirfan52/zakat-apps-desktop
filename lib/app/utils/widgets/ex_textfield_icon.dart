@@ -11,7 +11,7 @@ import 'ex_textfield.dart';
 
 class ExTextFieldIcon extends StatelessWidget {
   const ExTextFieldIcon({
-    Key? key,
+    super.key,
     this.prefixIcon,
     this.suffixIcon,
     this.borderColor = const Color(0xFFe4e8eb),
@@ -37,7 +37,7 @@ class ExTextFieldIcon extends StatelessWidget {
     this.labelTextColor = Colors.grey,
     this.helperText,
     this.helperTextColor = Colors.grey,
-  }) : super(key: key);
+  });
 
   final IconData? prefixIcon;
   final IconData? suffixIcon;

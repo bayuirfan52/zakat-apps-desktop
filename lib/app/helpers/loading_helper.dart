@@ -28,7 +28,6 @@ mixin LoadingHelper {
         ),
       ),
       barrierDismissible: isDismissible,
-      useSafeArea: true,
     );
   }
 

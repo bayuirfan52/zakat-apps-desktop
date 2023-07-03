@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:zakat_apps/app/theme/color.dart';
+import 'package:zakat_apps/app/helpers/preference_helper.dart';
 
 import 'info_controller.dart';
 
@@ -32,7 +32,7 @@ class InfoView extends GetView<InfoController> {
             ),
             SizedBox(height: 4),
             Text(
-              'Placeholder Takmir',
+              '${PreferenceHelper.currentNameInstitution()}',
               style: GoogleFonts.openSans(
                 fontSize: 18,
                 fontWeight: FontWeight.normal,

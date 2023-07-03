@@ -9,7 +9,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 class ExTextFieldMultiline extends StatelessWidget {
   const ExTextFieldMultiline({
-    Key? key,
+    super.key,
     this.borderColor = const Color(0xFFe4e8eb),
     this.hint,
     this.tfController,
@@ -20,7 +20,7 @@ class ExTextFieldMultiline extends StatelessWidget {
     this.fillColor = Colors.transparent,
     this.textInputAction,
     this.maxLine = 3,
-  }) : super(key: key);
+  });
   final Color? borderColor;
   final String? hint;
   final TextEditingController? tfController;

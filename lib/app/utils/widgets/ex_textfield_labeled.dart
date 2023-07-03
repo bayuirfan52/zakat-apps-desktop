@@ -11,7 +11,7 @@ import 'package:velocity_x/velocity_x.dart';
 class ExTextFieldLabeled extends StatelessWidget {
   const ExTextFieldLabeled({
     required this.label,
-    Key? key,
+    super.key,
     this.tfController,
     this.textInputAction,
     this.onSubmitted,
@@ -24,7 +24,7 @@ class ExTextFieldLabeled extends StatelessWidget {
     this.labelSize,
     this.keyboardType,
     this.validator,
-  }) : super(key: key);
+  });
 
   final TextEditingController? tfController;
   final ValueChanged<String>? onSubmitted;

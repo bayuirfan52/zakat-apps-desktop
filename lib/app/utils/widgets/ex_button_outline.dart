@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'package:zakat_apps/app/theme/color.dart';
 import 'package:zakat_apps/app/extensions/string_ext.dart';
+import 'package:zakat_apps/app/theme/color.dart';
 
 ///   created               : Aditya Pratama
 ///   originalFilename      : ex_button_outline

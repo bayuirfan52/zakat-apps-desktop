@@ -1,21 +1,12 @@
 import 'package:get/get.dart';
+import 'package:zakat_apps/app/data/database.dart';
+import 'package:zakat_apps/app/models/zakat_fitr.dart';
 
 class DashboardController extends GetxController {
-  final count = 0.obs;
+  final dataFitr = <ZakatFitr>[].obs;
   @override
-  void onInit() {
+  Future<void> onInit() async {
     super.onInit();
+    dataFitr.value = await Database.getAllFitrData();
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }
