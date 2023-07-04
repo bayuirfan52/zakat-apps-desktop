@@ -9,7 +9,7 @@ This project was built using:
 - `GetX` ecosystem.
 - `VelocityX` A minimalist Flutter framework for rapidly building custom designs.
 - `Dio` REST API client
-
+- Flow Documentation, please read this diagram: [FlowDiagram](https://drive.google.com/file/d/1ZgSLLxa1lWaIqvgad-NSOXK0IVEl4t6N/view?usp=sharing)
 ---
 
 ### Documentation
