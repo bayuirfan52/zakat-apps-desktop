@@ -29,7 +29,7 @@ class ReceiptView extends GetView<ReceiptController> {
         padding: EdgeInsets.all(48),
         child: VStack([
           Text(
-            'Panitia Zakat ${PreferenceHelper.currentNameInstitution()}',
+            'Panitia Zakat ${PreferenceHelper.currentNameInstitution() ?? ''}',
             style: GoogleFonts.roboto(
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -37,7 +37,7 @@ class ReceiptView extends GetView<ReceiptController> {
           ).centered(),
           SizedBox(height: 8),
           Text(
-            '${PreferenceHelper.currentAddressInstitution()}',
+            '${PreferenceHelper.currentAddressInstitution() ?? ''}',
             style: GoogleFonts.roboto(
               fontSize: 14,
               fontWeight: FontWeight.normal,

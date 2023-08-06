@@ -11,7 +11,7 @@ class PenyaluranView extends GetView<PenyaluranController> {
     return Scaffold(
       body: const Center(
         child: Text(
-          'PenyaluranView is working',
+          'Upcoming Features..',
           style: TextStyle(fontSize: 20),
         ),
       ),

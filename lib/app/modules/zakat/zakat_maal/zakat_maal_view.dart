@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'zakat_maal_controller.dart';
 
@@ -10,12 +11,17 @@ class ZakatMaalView extends GetView<ZakatMaalController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ZakatMaalView'),
-        centerTitle: true,
+        title: Text(
+          'Zakat Maal',
+          style: GoogleFonts.openSans(
+            fontSize: 16,
+            fontWeight: FontWeight.normal,
+          ),
+        ),
       ),
       body: const Center(
         child: Text(
-          'ZakatMaalView is working',
+          'Upcoming Features..',
           style: TextStyle(fontSize: 20),
         ),
       ),

@@ -28,7 +28,7 @@ class DashboardView extends GetView<DashboardController> {
             ),
             SizedBox(height: 8),
             Text(
-              'Hai ${PreferenceHelper.currentNameResponsible()}, selamat datang di aplikasi zakat. Berikut adalah data yang telah didapatkan untuk tahun ini.',
+              'Hai ${PreferenceHelper.currentNameResponsible() ?? 'New User'}, selamat datang di aplikasi zakat. Berikut adalah data yang telah didapatkan untuk tahun ini.',
               style: GoogleFonts.openSans(
                 fontSize: 14,
                 color: colorPrimary,
