@@ -19,8 +19,8 @@ class ZakatFitrahController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    basePrice = PreferenceHelper.currentFitrPrice() ?? 0;
-    price.value = PreferenceHelper.currentFitrPrice() ?? 0;
+    basePrice = PreferenceHelper.currentFitrPrice() ?? PreferenceHelper.getDefault()[PRICE_FITR_MAIN] as int;
+    price.value = PreferenceHelper.currentFitrPrice() ?? PreferenceHelper.getDefault()[PRICE_FITR_MAIN] as int;
     basePriceController.value = TextEditingValue(text: rupiah(basePrice));
   }
 
