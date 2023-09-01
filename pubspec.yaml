@@ -55,6 +55,7 @@ dependencies:
   package_info_plus: ^3.1.0
   esc_pos_bluetooth: ^0.4.1
   esc_pos_utils: ^1.1.0
+  esc_pos_printer: ^4.1.0
   flutter_masked_text2: ^0.9.1
   another_flushbar: ^1.12.30
   ticket_widget: ^0.0.1

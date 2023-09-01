@@ -21,11 +21,10 @@ class ReceiptController extends GetxController {
         print();
       });
     } else {
-      manager.startScan(Duration(seconds: 30));
-
-      manager.scanResults.listen((event) async {
-        debugPrint(event.asMap().toString());
+      manager.scanResults.listen((printer) async {
+        debugPrint(printer.asMap().toString());
       });
+      manager.startScan(Duration(seconds: 30));
     }
   }
 }

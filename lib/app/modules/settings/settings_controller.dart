@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_masked_text2/flutter_masked_text2.dart';
 import 'package:get/get.dart';
+import 'package:zakat_apps/app/helpers/flushbar_helper.dart';
 import 'package:zakat_apps/app/helpers/preference_helper.dart';
 
 class SettingsController extends GetxController {
@@ -55,5 +56,6 @@ class SettingsController extends GetxController {
     };
 
     PreferenceHelper.saveSettings(data);
+    FlushbarHelper.showFlushbar(Get.context!, FlushbarType.SUCCESS, message: 'Data Tersimpan');
   }
 }
