@@ -8,7 +8,7 @@ part of 'zakat_fitr.dart';
 
 class ZakatFitrAdapter extends TypeAdapter<ZakatFitr> {
   @override
-  final int typeId = 0;
+  final int typeId = 1;
 
   @override
   ZakatFitr read(BinaryReader reader) {
@@ -16,25 +16,35 @@ class ZakatFitrAdapter extends TypeAdapter<ZakatFitr> {
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return ZakatFitr()
-      .._name = fields[0] as String?
-      .._address = fields[1] as String?
-      .._count = fields[2] as int?
-      .._price = fields[3] as int?;
+    return ZakatFitr(
+      uuid: fields[4] as String?,
+      name: fields[1] as String?,
+      notes: fields[2] as String?,
+      address: fields[3] as String?,
+      count: fields[5] as int?,
+      price: fields[7] as int?,
+      createdAt: fields[9] as DateTime?,
+    );
   }
 
   @override
   void write(BinaryWriter writer, ZakatFitr obj) {
     writer
-      ..writeByte(4)
-      ..writeByte(0)
-      ..write(obj._name)
+      ..writeByte(7)
       ..writeByte(1)
-      ..write(obj._address)
+      ..write(obj.name)
       ..writeByte(2)
-      ..write(obj._count)
+      ..write(obj.notes)
       ..writeByte(3)
-      ..write(obj._price);
+      ..write(obj.address)
+      ..writeByte(4)
+      ..write(obj.uuid)
+      ..writeByte(5)
+      ..write(obj.count)
+      ..writeByte(7)
+      ..write(obj.price)
+      ..writeByte(9)
+      ..write(obj.createdAt);
   }
 
   @override
@@ -47,3 +57,29 @@ class ZakatFitrAdapter extends TypeAdapter<ZakatFitr> {
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+ZakatFitr _$ZakatFitrFromJson(Map<String, dynamic> json) => ZakatFitr(
+      uuid: json['uuid'] as String?,
+      name: json['name'] as String?,
+      notes: json['notes'] as String?,
+      address: json['address'] as String?,
+      count: json['count'] as int?,
+      price: json['price'] as int?,
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+    );
+
+Map<String, dynamic> _$ZakatFitrToJson(ZakatFitr instance) => <String, dynamic>{
+      'name': instance.name,
+      'notes': instance.notes,
+      'address': instance.address,
+      'uuid': instance.uuid,
+      'count': instance.count,
+      'price': instance.price,
+      'created_at': instance.createdAt?.toIso8601String(),
+    };

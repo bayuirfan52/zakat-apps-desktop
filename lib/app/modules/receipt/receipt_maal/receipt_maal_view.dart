@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'receipt_maal_controller.dart';
 
 class ReceiptMaalView extends GetView<ReceiptMaalController> {
-  const ReceiptMaalView({Key? key}) : super(key: key);
+  const ReceiptMaalView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

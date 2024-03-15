@@ -66,7 +66,7 @@ class ZakatView extends GetView<ZakatController> {
                         color: Colors.white,
                         fontSize: 14,
                       ),
-                    )
+                    ),
                   ],
                   alignment: MainAxisAlignment.center,
                   crossAlignment: CrossAxisAlignment.center,
@@ -93,7 +93,7 @@ class ZakatView extends GetView<ZakatController> {
                         color: Colors.white,
                         fontSize: 14,
                       ),
-                    )
+                    ),
                   ],
                   alignment: MainAxisAlignment.center,
                   crossAlignment: CrossAxisAlignment.center,
@@ -103,7 +103,7 @@ class ZakatView extends GetView<ZakatController> {
               }),
             ),
           ],
-        )
+        ),
       ]).p24(),
     );
   }

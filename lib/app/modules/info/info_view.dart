@@ -72,11 +72,11 @@ class InfoView extends GetView<InfoController> {
                 fontSize: FontSize(14.0),
                 fontWeight: FontWeight.bold,
                 fontFamily: GoogleFonts.openSans().fontFamily,
-                margin: EdgeInsets.zero,
-                padding: EdgeInsets.zero,
+                margin: Margins.zero,
+                padding: HtmlPaddings.zero,
               ),
             },
-            onLinkTap: (url, ctx, _, __) async {
+            onLinkTap: (url, _, __) async {
               await launchUrlString(url!);
             },
           ).pSymmetric(v: 8),
@@ -96,11 +96,11 @@ class InfoView extends GetView<InfoController> {
                 fontSize: FontSize(14.0),
                 fontWeight: FontWeight.bold,
                 fontFamily: GoogleFonts.openSans().fontFamily,
-                margin: EdgeInsets.zero,
-                padding: EdgeInsets.zero,
+                margin: Margins.zero,
+                padding: HtmlPaddings.zero,
               ),
             },
-            onLinkTap: (url, ctx, _, __) async {
+            onLinkTap: (url, _, __) async {
               await launchUrlString(url!);
             },
           ).pSymmetric(v: 8),
@@ -108,7 +108,7 @@ class InfoView extends GetView<InfoController> {
         Spacer(),
         Html(
           data: '<a href="https://www.flaticon.com/free-icons/zakat" title="zakat icons">Zakat icons created by cah nggunung - Flaticon</a>',
-          onLinkTap: (url, ctx, _, __) async {
+          onLinkTap: (url, _, __) async {
             await launchUrlString(url!);
           },
         ),

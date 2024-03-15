@@ -7,6 +7,11 @@ class PenerimaController extends GetxController {
   @override
   Future<void> onInit() async {
     super.onInit();
+  }
+
+  @override
+  Future<void> onReady() async {
     dataFitr.value = await Database.getAllFitrData();
+    super.onReady();
   }
 }

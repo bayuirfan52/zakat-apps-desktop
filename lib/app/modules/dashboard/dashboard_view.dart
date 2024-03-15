@@ -91,7 +91,8 @@ class DashboardView extends GetView<DashboardController> {
                   ),
                 ),
                 Text(
-                  '100',
+                  'Upcoming Features',
+                  overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.openSans(
                     fontSize: 48,
@@ -124,7 +125,8 @@ class DashboardView extends GetView<DashboardController> {
                   ),
                 ),
                 Text(
-                  '100',
+                  'Upcoming Features',
+                  overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.openSans(
                     fontSize: 48,
@@ -167,7 +169,7 @@ class DashboardView extends GetView<DashboardController> {
               ).expand(),
             ]).p24(),
           ).expand(),
-        ])
+        ]),
       ]).p24(),
     );
   }

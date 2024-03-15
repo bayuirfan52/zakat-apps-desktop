@@ -24,143 +24,166 @@ class ZakatFitrahView extends GetView<ZakatFitrahController> {
           ),
         ),
       ),
-      body: VStack([
-        Text(
-          'Penerimaan Zakat Fitrah',
-          style: GoogleFonts.openSans(
-            fontSize: 18,
-            color: colorText,
-            fontWeight: FontWeight.w700,
+      body: Form(
+        key: controller.formKey,
+        child: VStack([
+          Text(
+            'Penerimaan Zakat Fitrah',
+            style: GoogleFonts.openSans(
+              fontSize: 18,
+              color: colorText,
+              fontWeight: FontWeight.w700,
+            ),
           ),
-        ),
-        SizedBox(height: 8),
-        Text(
-          'Silakan masukan orang yang akan menunaikan zakat',
-          style: GoogleFonts.openSans(
-            fontSize: 14,
-            color: colorText,
-            fontWeight: FontWeight.normal,
+          SizedBox(height: 8),
+          Text(
+            'Silakan masukan orang yang akan menunaikan zakat',
+            style: GoogleFonts.openSans(
+              fontSize: 14,
+              color: colorText,
+              fontWeight: FontWeight.normal,
+            ),
           ),
-        ),
-        SizedBox(height: 24),
-        ExTextFieldIcon(
-          labelText: 'Nama Pembayar Zakat',
-          hint: 'Tulis nama pembayar zakat',
-          prefixIcon: Icons.person_2_rounded,
-          tfController: controller.nameController,
-          textInputType: TextInputType.name,
-        ),
-        SizedBox(height: 16),
-        ExTextFieldIcon(
-          labelText: 'Alamat',
-          hint: 'Alamat pembayar zakat',
-          textInputType: TextInputType.streetAddress,
-          tfController: controller.addressController,
-          prefixIcon: Icons.location_city_rounded,
-        ),
-        SizedBox(height: 16),
-        ExTextFieldIcon(
-          labelText: 'Nominal zakat fitrah per-orang',
-          tfController: controller.basePriceController,
-          textInputType: TextInputType.streetAddress,
-          prefixIcon: Icons.location_city_rounded,
-          enabled: false,
-        ),
-        SizedBox(height: 24),
-        HStack(
-          [
-            HStack(
-              [
-                Text(
-                  'Total Pembayaran:',
-                  style: GoogleFonts.openSans(
-                    fontSize: 16,
-                    color: colorText,
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
-                SizedBox(width: 24),
-                Obx(
-                  () => Text(
-                    '${rupiah(controller.price.value)}',
+          SizedBox(height: 24),
+          ExTextFieldIcon(
+            labelText: 'Nama Pembayar Zakat',
+            hint: 'Tulis nama pembayar zakat',
+            prefixIcon: Icons.person_2_rounded,
+            tfController: controller.nameController,
+            textInputType: TextInputType.name,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Nama wajib diisi';
+              }
+              return null;
+            },
+          ),
+          SizedBox(height: 16),
+          ExTextFieldIcon(
+            labelText: 'Alamat',
+            hint: 'Alamat pembayar zakat',
+            textInputType: TextInputType.streetAddress,
+            tfController: controller.addressController,
+            prefixIcon: Icons.location_city_rounded,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Alamat wajib diisi';
+              }
+              return null;
+            },
+          ),
+          SizedBox(height: 16),
+          ExTextFieldIcon(
+            labelText: 'Catatan',
+            hint: 'Masukkan catatan',
+            textInputType: TextInputType.text,
+            tfController: controller.notesController,
+            prefixIcon: Icons.notes,
+          ),
+          SizedBox(height: 16),
+          ExTextFieldIcon(
+            labelText: 'Nominal zakat fitrah per-orang',
+            tfController: controller.basePriceController,
+            textInputType: TextInputType.text,
+            prefixIcon: Icons.location_city_rounded,
+            enabled: false,
+          ),
+          SizedBox(height: 24),
+          HStack(
+            [
+              HStack(
+                [
+                  Text(
+                    'Total Pembayaran:',
                     style: GoogleFonts.openSans(
-                      fontSize: 24,
+                      fontSize: 16,
                       color: colorText,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.normal,
                     ),
                   ),
-                ),
-              ],
-            ),
-            Spacer(),
-            VStack(
-              [
-                Text(
-                  'Jumlah orang',
-                  style: GoogleFonts.openSans(
-                    fontSize: 14,
-                    color: colorText,
-                    fontWeight: FontWeight.normal,
+                  SizedBox(width: 24),
+                  Obx(
+                    () => Text(
+                      '${rupiah(controller.price.value)}',
+                      style: GoogleFonts.openSans(
+                        fontSize: 24,
+                        color: colorText,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
                   ),
-                ),
-                SizedBox(height: 16),
-                HStack(
-                  [
-                    SizedBox(
-                      width: 48,
-                      height: 48,
-                      child: FloatingActionButton(
-                        onPressed: () {
-                          controller.add();
-                        },
-                        heroTag: 'add',
-                        child: Icon(
-                          Icons.add,
-                          color: Colors.white,
+                ],
+              ),
+              Spacer(),
+              VStack(
+                [
+                  Text(
+                    'Jumlah orang',
+                    style: GoogleFonts.openSans(
+                      fontSize: 14,
+                      color: colorText,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                  SizedBox(height: 16),
+                  HStack(
+                    [
+                      SizedBox(
+                        width: 48,
+                        height: 48,
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            controller.add();
+                          },
+                          heroTag: 'add',
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 48),
-                    Obx(
-                      () => Text(
-                        '${controller.personCount.value}',
-                        style: GoogleFonts.openSans(
-                          fontSize: 36,
-                          color: colorText,
-                          fontWeight: FontWeight.bold,
+                      SizedBox(width: 48),
+                      Obx(
+                        () => Text(
+                          '${controller.personCount.value}',
+                          style: GoogleFonts.openSans(
+                            fontSize: 36,
+                            color: colorText,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 48),
-                    SizedBox(
-                      width: 48,
-                      height: 48,
-                      child: FloatingActionButton(
-                        onPressed: () {
-                          controller.minus();
-                        },
-                        heroTag: 'minus',
-                        child: Icon(
-                          Icons.remove,
-                          color: Colors.white,
+                      SizedBox(width: 48),
+                      SizedBox(
+                        width: 48,
+                        height: 48,
+                        child: FloatingActionButton(
+                          onPressed: () {
+                            controller.minus();
+                          },
+                          heroTag: 'minus',
+                          child: Icon(
+                            Icons.remove,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                  alignment: MainAxisAlignment.spaceEvenly,
-                )
-              ],
-              crossAlignment: CrossAxisAlignment.center,
-            ),
-          ],
-          crossAlignment: CrossAxisAlignment.start,
-        ),
-        Spacer(),
-        ExButtonDefault(
-          onPressed: () => controller.checkingData(alertConfirmation),
-          label: 'Bayar Zakat',
-        ).wFull(context)
-      ]).p24(),
+                    ],
+                    alignment: MainAxisAlignment.spaceEvenly,
+                  ),
+                ],
+                crossAlignment: CrossAxisAlignment.center,
+              ),
+            ],
+            crossAlignment: CrossAxisAlignment.start,
+          ),
+          Spacer(),
+          ExButtonDefault(
+            onPressed: () => controller.checkingData(alertConfirmation),
+            label: 'Bayar Zakat',
+          ).wFull(context),
+        ]).p24(),
+      ),
     );
   }
 

@@ -1,39 +1,26 @@
 import 'package:hive/hive.dart';
 import 'package:zakat_apps/app/models/zakat_fitr.dart';
-import 'dart:convert';
 
 mixin Database {
   static final zakatFitrBox = 'zakat_fitr';
 
   static Future<void> databaseInit() async {
-    Hive.registerAdapter(ZakatFitrAdapter());
-    await Hive.openBox(zakatFitrBox);
+    if (!Hive.isAdapterRegistered(1)) Hive.registerAdapter(ZakatFitrAdapter());
+    await Hive.openBox<ZakatFitr>(zakatFitrBox);
   }
 
   static Future<void> addFitrData(ZakatFitr data) async {
-    final box = await Hive.openBox(zakatFitrBox);
-    await box.add(data.toJson());
-    box.close();
+    try {
+      final box = await Hive.box<ZakatFitr>(zakatFitrBox);
+      await box.put(data.uuid, data);
+    } catch(e, trace) {
+      print(trace);
+    }
   }
 
   static Future<List<ZakatFitr>> getAllFitrData() async {
-    final box = await Hive.openBox(zakatFitrBox);
-    final list = <ZakatFitr>[];
+    final data = await Hive.box<ZakatFitr>(zakatFitrBox).values.toList();
 
-    for (int i = box.length - 1; i >= 0; i--) {
-      var item = box.getAt(i);
-      print(item.toString());
-      var data = ZakatFitr(
-        name: item['name'],
-        address: item['address'],
-        count: item['count'],
-        price: item['price'],
-      );
-      list.add(data);
-    }
-
-    box.close();
-
-    return list;
+    return data;
   }
 }

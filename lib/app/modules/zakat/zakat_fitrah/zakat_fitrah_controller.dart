@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:uuid/uuid.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:zakat_apps/app/data/database.dart';
 import 'package:zakat_apps/app/helpers/flushbar_helper.dart';
@@ -14,7 +15,9 @@ class ZakatFitrahController extends GetxController {
   final personCount = 1.obs;
   final nameController = TextEditingController();
   final addressController = TextEditingController();
+  final notesController = TextEditingController();
   final basePriceController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
 
   @override
   void onInit() {
@@ -60,19 +63,23 @@ class ZakatFitrahController extends GetxController {
   }
 
   Future<void> submit() async {
-    final data = ZakatFitr(
-      name: nameController.text,
-      address: addressController.text,
-      price: price.value,
-      count: personCount.value,
-    );
+    if (formKey.currentState!.validate()) {
+      final data = ZakatFitr(
+        uuid: const Uuid().v1(),
+        name: nameController.text,
+        address: addressController.text,
+        notes: notesController.text,
+        price: price.value,
+        count: personCount.value,
+        createdAt: DateTime.now(),
+      );
 
-    Get.back<dynamic>();
-    await Database.addFitrData(data).then((value) {
-      Get.offNamed<dynamic>(Routes.RECEIPT, arguments: data.toJson());
-      // ignore: inference_failure_on_untyped_parameter
-    }).catchError((error) {
-      FlushbarHelper.showFlushbar(Get.context!, FlushbarType.ERROR, message: error.toString());
-    });
+      Get.back<dynamic>();
+      await Database.addFitrData(data).then((value) {
+        Get.offNamed<dynamic>(Routes.RECEIPT, arguments: data);
+      }).catchError((Object error) {
+        FlushbarHelper.showFlushbar(Get.context!, FlushbarType.ERROR, message: error.toString());
+      });
+    }
   }
 }

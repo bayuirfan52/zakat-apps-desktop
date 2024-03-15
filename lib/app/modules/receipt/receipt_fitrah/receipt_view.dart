@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import 'package:ticket_widget/ticket_widget.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:zakat_apps/app/helpers/preference_helper.dart';
@@ -13,6 +14,7 @@ import 'receipt_controller.dart';
 
 class ReceiptView extends GetView<ReceiptController> {
   const ReceiptView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +26,7 @@ class ReceiptView extends GetView<ReceiptController> {
       ),
       body: TicketWidget(
         width: 500,
-        height: 500,
+        height: 600,
         isCornerRounded: true,
         padding: EdgeInsets.all(48),
         child: VStack([
@@ -101,6 +103,86 @@ class ReceiptView extends GetView<ReceiptController> {
               ),
             ),
           ]),
+          SizedBox(height: 16),
+          LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+              final boxWidth = constraints.constrainWidth();
+              const dashWidth = 10.0;
+              const dashHeight = 1.0;
+              final dashCount = (boxWidth / (2 * dashWidth)).floor();
+              return Flex(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                direction: Axis.horizontal,
+                children: List.generate(dashCount, (_) {
+                  return SizedBox(
+                    width: dashWidth,
+                    height: dashHeight,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(color: colorGrey),
+                    ),
+                  );
+                }),
+              );
+            },
+          ),
+          SizedBox(height: 16),
+          HStack([
+            Text(
+              'Tanggal Pembayaran',
+              style: GoogleFonts.roboto(
+                fontSize: 16,
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+            Spacer(),
+            Text(
+              '${DateFormat('dd MMMM yyyy HH:mm', 'id_ID').format(controller.data.value.createdAt!)}',
+              style: GoogleFonts.roboto(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ]),
+          SizedBox(height: 16),
+          LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+              final boxWidth = constraints.constrainWidth();
+              const dashWidth = 10.0;
+              const dashHeight = 1.0;
+              final dashCount = (boxWidth / (2 * dashWidth)).floor();
+              return Flex(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                direction: Axis.horizontal,
+                children: List.generate(dashCount, (_) {
+                  return SizedBox(
+                    width: dashWidth,
+                    height: dashHeight,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(color: colorGrey),
+                    ),
+                  );
+                }),
+              );
+            },
+          ),
+          SizedBox(height: 16),
+          HStack([
+            Text(
+              'Catatan',
+              style: GoogleFonts.roboto(
+                fontSize: 16,
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+            Spacer(),
+            Text(
+              '${controller.data.value.notes}',
+              style: GoogleFonts.roboto(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ]),
           Spacer(),
           HStack([
             Text(
@@ -163,7 +245,7 @@ class ReceiptView extends GetView<ReceiptController> {
           ExButtonDefault(
             onPressed: () => controller.print(),
             label: 'Cetak',
-          ).wFull(context)
+          ).wFull(context),
         ]),
       ).centered().p24(),
     );

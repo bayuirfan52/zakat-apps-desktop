@@ -85,7 +85,7 @@ class AppPages {
       page: () => const PenerimaView(),
       binding: PenerimaBinding(),
     ),
-    GetPage(
+    GetPage<dynamic>(
       name: _Paths.RECEIPT_MAAL,
       page: () => const ReceiptMaalView(),
       binding: ReceiptMaalBinding(),

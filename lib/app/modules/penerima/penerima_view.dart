@@ -29,7 +29,7 @@ class PenerimaView extends GetView<PenerimaController> {
             ),
             SizedBox(height: 8),
             Text(
-              'Daftar orang-orang yang telah menunaikan zakat',
+              'Daftar orang-orang yang telah membayar zakat',
               style: GoogleFonts.openSans(
                 fontSize: 14,
                 color: Colors.blue.shade500,
@@ -39,56 +39,79 @@ class PenerimaView extends GetView<PenerimaController> {
         ).wFull(context),
         SizedBox(height: 24),
         Obx(
-          () => ListView.builder(
-            itemBuilder: (context, index) {
-              final data = controller.dataFitr[index];
-              return ListTile(
-                contentPadding: EdgeInsets.all(8),
-                leading: Icon(
-                  Icons.person,
-                  color: colorPrimary,
-                  size: 48,
-                ),
-                title: HStack([
+          () => Visibility(
+            visible: controller.dataFitr.isNotEmpty,
+            replacement: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.file_copy,
+                    size: 48,
+                    color: Colors.grey,
+                  ),
+                  24.heightBox,
                   Text(
-                    data.name ?? '',
+                    'Data tidak ditemukan',
                     style: GoogleFonts.roboto(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                      color: Colors.grey,
                     ),
                   ),
-                  Spacer(),
-                  Text(
-                    data.address ?? '',
-                    style: GoogleFonts.roboto(
-                      fontSize: 12,
-                      fontWeight: FontWeight.normal,
-                    ),
+                ],
+              ),
+            ),
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                final data = controller.dataFitr[index];
+                return ListTile(
+                  contentPadding: EdgeInsets.all(8),
+                  leading: Icon(
+                    Icons.person,
+                    color: colorPrimary,
+                    size: 48,
                   ),
-                ]),
-                subtitle: HStack([
-                  Text(
-                    'Jumlah orang: ${data.count}',
-                    style: GoogleFonts.roboto(
-                      fontSize: 12,
-                      fontWeight: FontWeight.normal,
+                  title: HStack([
+                    Text(
+                      data.name ?? '',
+                      style: GoogleFonts.roboto(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                  Spacer(),
-                  Text(
-                    rupiah(data.price ?? 0),
-                    style: GoogleFonts.roboto(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: colorText,
+                    Spacer(),
+                    Text(
+                      data.address ?? '',
+                      style: GoogleFonts.roboto(
+                        fontSize: 12,
+                        fontWeight: FontWeight.normal,
+                      ),
                     ),
-                  ),
-                ]),
-              );
-            },
-            itemCount: controller.dataFitr.length,
-          ).expand(),
-        )
+                  ]),
+                  subtitle: HStack([
+                    Text(
+                      'Jumlah orang: ${data.count}',
+                      style: GoogleFonts.roboto(
+                        fontSize: 12,
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                    Spacer(),
+                    Text(
+                      rupiah(data.price ?? 0),
+                      style: GoogleFonts.roboto(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: colorText,
+                      ),
+                    ),
+                  ]),
+                );
+              },
+              itemCount: controller.dataFitr.length,
+            ).expand(),
+          ),
+        ),
       ]).p24(),
     );
   }
